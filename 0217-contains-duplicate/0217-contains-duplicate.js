@@ -3,10 +3,11 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-    const nums2 = []
-    for(let i = 0; i < nums.length; i++){
-        if (nums2.includes(nums[i])) return true
-        else nums2.push(nums[i])
+    const nums1 = []
+    
+    for (let num of nums){
+        if (nums1.includes(num)) return true
+        else nums1.push(num)
     }
     return false
 };
