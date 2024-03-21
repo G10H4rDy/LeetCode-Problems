@@ -4,22 +4,21 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
+    if (k === 0 || nums.length === 1) return;
 
-  const nums1 = [];
+    if (k >= nums.length){
+    k = k % nums.length
+}
 
-  if (k >= nums.length) {
-    k = k % nums.length;
-    if (k === 0) {
-      return nums;
+    // NOT ACCEPTED BY LEETCODE
+    // remove last elements from index K
+    // let startPosition = nums.length - k
+    // const removed = nums.splice(startPosition,k)
+    // nums = removed.concat(nums)
+
+    let numsArr = nums.splice(nums.length - k)
+    for(let i = k -1 ; i >=0; i--)
+    {
+       nums.unshift(numsArr[i])
     }
-  }
-
-  for (let i = 0; i < k; i++) {
-    nums1.push(nums.pop());
-  }
-
-  for (let i = 0; i < nums1.length; i++) {
-    nums.unshift(nums1[i]);
-  }
-
 };
