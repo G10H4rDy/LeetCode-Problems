@@ -4,8 +4,8 @@
  */
 var moveZeroes = function(nums) {
     let zeroCounter = 0;
-    let originalLength = nums.length
-    for (let i = 0; i < originalLength; i++){
+  
+    for (let i = 0; i < nums.length; i++){
         if ( nums[i] === 0 )
         {
             nums.splice(i,1)
