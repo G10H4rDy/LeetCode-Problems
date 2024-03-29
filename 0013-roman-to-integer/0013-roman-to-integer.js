@@ -14,16 +14,20 @@ var romanToInt = function(s) {
         'M':             1000,
     }
 
-    let num = 0;
-    for(let i = s.length - 1, j = i -1; i >= 0 ; i--, j--){
-        if (obj[s[j]] < obj[s[i]]){
-            num += obj[s[i]] - obj[s[j]];
+    let number = 0;
+
+    for(let i = s.length - 1; i >= 0; i--)
+    {   
+        // Check if following number is more than previous
+        if(obj[s[i]] > obj[s[i - 1]])
+        {
+            number+= obj[s[i]] - obj[s[i - 1]]
             i--;
-            j--;
-        }else{
-            num += obj[s[i]];   
+            continue
         }
+        number += obj[s[i]]
+
     }
 
-    return num;
+    return number
 };
