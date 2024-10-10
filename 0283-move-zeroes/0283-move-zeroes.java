@@ -3,8 +3,6 @@ class Solution {
       // Start with two pointers 
       int left = 0;
       int pointer = 0;
-      if(nums.length == 1) return;
-      // If you encounter non-0 value, move it to the front  
       while(pointer <= nums.length- 1){
       if (nums[pointer] != 0){
         int copy = nums[left];
