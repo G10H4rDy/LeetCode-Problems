@@ -5,6 +5,8 @@
  */
 var isAnagram = function(s, t) {
 
+    if(s.length !== t.length) return false;
+
     let letters1 = {};
     let letters2 = {};
 
@@ -30,10 +32,6 @@ var isAnagram = function(s, t) {
 
 
     for (let letter in letters1) {
-         if (letters1[letter] !== letters2[letter]) return false;
-  }
-
-     for (let letter in letters2) {
          if (letters1[letter] !== letters2[letter]) return false;
   }
 
