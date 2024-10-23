@@ -13,13 +13,12 @@ var plusOne = function(digits) {
     carry = 1;
     for(let i = digits.length - 1; i >=0; i-- )
     {
-        if( (digits[i] + carry) === 10){
+        if( (digits[i] + 1) === 10){
             digits[i] = 0;
             if ( i === 0){
                 digits.unshift(1)
                 return digits
             }
-            carry = 1;
             continue
         }
 
