@@ -3,23 +3,13 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    
+    if(x < 0) return false;
 
-    if (x < 0){
-        return false;
-    }
-    let nums =[];
-    let y = x;
-    while (y>0){
-        let z = y % 10;
-        nums.push(z);
-        y = Math.floor(y/10); 
+    xStr = String(x);
+
+    for(let i = 0, j = xStr.length - 1; i < j; i++, j--){
+        if(xStr[i] !== xStr[j]) return false;
     }
 
-    while(nums.length > 1){
-        if(nums.shift()!== nums.pop()){
-            return false;
-        }
-    }
     return true;
-}
+};
