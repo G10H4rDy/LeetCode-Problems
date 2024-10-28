@@ -4,25 +4,31 @@
  */
 var isValid = function(s) {
 
+    // return immediately if if length if even
     if(!(s.length > 1) || s.length % 2 === 1) return false;
 
+    let brackets = {
+        ')' : '(',
+        ']' : '[',
+        '}' : '{'
 
+    }
 
-    let brackets = [];
+    let stack = [];
 
     for (let i = 0; i < s.length; i++ ){
-        if(s[i] === '(' ||  s[i] === '[' || s[i] === '{' ){
-            brackets.push(s[i])
+        if(!brackets[s[i]] ){
+            stack.push(s[i])
             continue
         }else{
-            if(brackets[brackets.length - 1] + s[i] === '()' || brackets[brackets.length - 1] + s[i] === '[]' || brackets[brackets.length - 1] + s[i] === '{}' ){
-                brackets.pop()
+            if(brackets[s[i]] === stack[stack.length - 1]){
+                stack.pop()
             }else{
                 return false;
             }
         }
     }
 
-    return brackets.length === 0 ? true : false;
+    return stack.length === 0 ? true : false;
 
 };
